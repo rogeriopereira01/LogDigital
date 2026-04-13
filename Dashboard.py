@@ -1,15 +1,32 @@
 import streamlit as st
 import pandas as pd
-import mysql.connector
 import matplotlib.pyplot as plt
 
-conn = mysql.connector.connect(
-    host="localhost",
-    user="root",
-    password="Rogerin001@",
-    database="logistica_db"
-)
+url = "https://raw.githubusercontent.com/rogeriopereira01/LogDigital/refs/heads/main/logistica_tratada.csv"
 
+df = pd.read_csv(url)
+
+df["Custo_KM"] = df["CustoFrete"] / df["DistanciaKM"]
+df["Atraso"] = (pd.to_datetime(df["DataEntregaReal"]) - pd.to_datetime(df["DataEntregaPrevista"])).dt.days
+
+st.title("📊 Dashboard Logístico")
+
+col1, col2, col3 = st.columns(3)
+
+col1.metric("Total de Pedidos", len(df))
+col2.metric("Custo Médio/KM", round(df["Custo_KM"].mean(), 2))
+col3.metric("Atraso Médio", round(df["Atraso"].mean(), 1))
+
+st.subheader("Custo por Transportadora")
+
+df_transp = df.groupby("Transportadora")["Custo_KM"].mean()
+
+fig, ax = plt.subplots()
+df_transp.plot(kind='bar', ax=ax)
+st.pyplot(fig)
+
+st.subheader("Dados")
+st.dataframe(df)
 query = """
 SELECT 
     p.PedidoID,
