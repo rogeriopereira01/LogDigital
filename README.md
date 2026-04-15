@@ -17,7 +17,7 @@ Como diferencial, foi desenvolvido um dashboard interativo para visualização d
 - Eliel Maciel  
 - Felipe Rodrigues  
 - Leandro Ramos  
-- Miria Chaves    
+- Miriã Chaves    
 - Rogério Augusto  
 - Vinicius Moreira
 
