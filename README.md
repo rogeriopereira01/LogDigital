@@ -12,6 +12,17 @@ Como diferencial, foi desenvolvido um dashboard interativo para visualização d
 
 ---
 
+## 👥 Membros do Grupo
+
+- Eliel Maciel  
+- Felipe Rodrigues  
+- Leandro Ramos  
+- Miria Chaves  
+- Paulo Ribeiro  
+- Rogério Augusto  
+
+--
+
 ## 🌐 Dashboard Interativo
 👉 [https://logdigital.streamlit.app](https://logdigital-x9bb3v5vn5j8sq7ejdupre.streamlit.app)
 
